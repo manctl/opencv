@@ -20,6 +20,11 @@ if(COMMAND cmake_policy)
   cmake_policy(SET CMP0003 NEW)
 endif()
 
+# NMake does not set that by default, although MSVC does.
+if(WIN32)
+    add_definitions(-DWIN32)
+endif()
+
 # Following block can broke build in case of cross-compilng
 # but CMAKE_CROSSCOMPILING variable will be set only on project(OpenCV) command
 # so we will try to detect crosscompiling by presense of CMAKE_TOOLCHAIN_FILE

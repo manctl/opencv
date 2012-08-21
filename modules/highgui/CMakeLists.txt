@@ -221,7 +221,7 @@ if(BUILD_SHARED_LIBS)
   add_definitions(-DHIGHGUI_EXPORTS)
 endif()
 
-if(MSVC)
+if(MSVC AND NOT BUILD_SHARED_LIBS)
   set_target_properties(${the_module} PROPERTIES LINK_FLAGS "/NODEFAULTLIB:atlthunk.lib /NODEFAULTLIB:atlsd.lib /NODEFAULTLIB:libcmt.lib /DEBUG")
 endif()
 
